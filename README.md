@@ -25,13 +25,13 @@ sudo apt-get install azure-cli
 **Install Kubernetes client and link it to az cli**  
 `az aks install-cli`
 
-### Create Cluster ACS
+### Create Cluster AKS
 Repository : [ygo74/azure](https://github.com/ygo74/azure)  
 Scripts    : [01-ContinuousIntegration](https://github.com/ygo74/azure/tree/master/scripts/01-ContinuousIntegration)  
 
 ### Connect to the cluster  
 ```powershell
-$aksClusterName    = "myAKSCluster"
+$aksClusterName    = "aksCluster"
 $ResourceGroupName = "AKS"
 az aks get-credentials --resource-group $ResourceGroupName  --name $aksClusterName  
   
@@ -54,3 +54,6 @@ kubectl get nodes
 kubectl proxy
 ```  
 
+
+az aks show --resource-group $ResourceGroupName --name $aksClusterName --query nodeResourceGroup -o tsv
+az network public-ip show --resource-group MC_AKS_aksCluster_westeurope --name jenkins-aks --query ipAddress
