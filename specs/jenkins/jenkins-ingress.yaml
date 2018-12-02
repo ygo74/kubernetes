@@ -12,10 +12,6 @@ spec:
   rules:
   - http:
       paths:
-      - path: /
-        backend:
-          serviceName: aks-helloworld
-          servicePort: 80
       - path: /jenkins
         backend:
           serviceName: jenkins

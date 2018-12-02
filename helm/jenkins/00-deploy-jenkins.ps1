@@ -1,6 +1,9 @@
 
 #Web site : https://github.com/helm/charts/tree/master/stable/jenkins
-helm install stable/jenkins --namespace default --set controller.replicaCount=2 --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false -n jenkins
+helm install stable/jenkins -n jenkins --namespace default --set controller.replicaCount=2 --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
+
+helm upgrade jenkins stable/jenkins -f values.yml --set ingress.enabled=true --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
+
 
 $password = (kubectl get secret --namespace default jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode)
 write-host "passsword : $password"
