@@ -6,7 +6,7 @@
 Version as is in 17/11/2018 : 2.0.50
 
 **Install az cli**  
-* For Windows : [Download latester version](https://aka.ms/installazurecliwindows)  
+* For Windows : [Download latest version](https://aka.ms/installazurecliwindows)  
 
 * For Ubuntu  : [Documentation Source](https://docs.microsoft.com/fr-fr/cli/azure/install-azure-cli-apt?view=azure-cli-latest)  
 ```bash
@@ -29,15 +29,6 @@ sudo apt-get install azure-cli
 Repository : [ygo74/azure](https://github.com/ygo74/azure)  
 Scripts    : [01-ContinuousIntegration](https://github.com/ygo74/azure/tree/master/scripts/01-ContinuousIntegration)  
 
-### Connect to the cluster  
-```powershell
-$aksClusterName    = "aksCluster"
-$ResourceGroupName = "AKS"
-az aks get-credentials --resource-group $ResourceGroupName  --name $aksClusterName  
-  
-az aks browse -g $ResourceGroupName -n $aksClusterName
-```  
-
 ## Common Kubernetes Usage
 * ***View Kubectl configuration***  
 ```
@@ -53,7 +44,6 @@ kubectl get nodes
 ```
 kubectl proxy
 ```  
-
 
 az aks show --resource-group $ResourceGroupName --name $aksClusterName --query nodeResourceGroup -o tsv
 az network public-ip show --resource-group MC_AKS_aksCluster_westeurope --name jenkins-aks --query ipAddress
