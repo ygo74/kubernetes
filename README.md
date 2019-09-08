@@ -1,5 +1,12 @@
 # kubernetes
 
+## Table of Contents
+1. [Prerequisites](documentation/00-prerequisites.md)
+2. [Installation](documentation/01-installation.md)
+3. [Configuration](documentation/02-configuration.md)
+4. [Basic commands](documentation/03-basic-commands.md)
+4. [Helm commands](documentation/04-helm-commands.md)
+
 ## Kubernetes On Azure
 ### Prerequisites  
 
@@ -25,25 +32,17 @@ sudo apt-get install azure-cli
 **Install Kubernetes client and link it to az cli**  
 `az aks install-cli`
 
-### Create Cluster AKS
-Repository : [ygo74/azure](https://github.com/ygo74/azure)  
-Scripts    : [01-ContinuousIntegration](https://github.com/ygo74/azure/tree/master/scripts/01-ContinuousIntegration)  
+## Cluster configuration
+
+list of clusters : C:\Users\Administrator\.kube\config  
 
 ## Common Kubernetes Usage
-* ***View Kubectl configuration***  
-```
-kubectl config view
-```  
-
-* ***Retrieve list of cluster's nodes***  
-```
-kubectl get nodes
-```  
-
-* ***Browse Kubernetes Cluster***  
-```
-kubectl proxy
-```  
 
 az aks show --resource-group $ResourceGroupName --name $aksClusterName --query nodeResourceGroup -o tsv
 az network public-ip show --resource-group MC_AKS_aksCluster_westeurope --name jenkins-aks --query ipAddress
+
+* ***Check ingress service***
+
+```
+kubectl get svc ingress-nginx -n ingress-nginx -o=jsonpath="{.status.loadBalancer.ingress[0].ip}
+```
