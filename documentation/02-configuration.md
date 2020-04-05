@@ -35,6 +35,10 @@ metadata:
   namespace: kube-system
 
 ```
+
+
+
+
 2. Bind service account tiller to cluster-admin role
 ```yaml
 ---
